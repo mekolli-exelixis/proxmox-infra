@@ -1,18 +1,22 @@
 **Proxmox-infra**
+
 Infrastructure-as-Code for deploying and managing virtual machines on a Proxmox cluster using Terraform.
 Includes a modular VM template system, category‑based VM definitions, and a priority‑driven monitoring framework to ensure critical VMs stay online.
 
 **Overview**
+
 This repository provides:
 A modular Terraform architecture for deploying multiple VM categories (DHCP, NTP, user VMs, etc.)
 
 **Flexible VM definitions with customizable:**
+
 + CPU
 + Memory
 + VMID ranges
 + Templates
   
 **Naming conventions**
+
 A priority‑based monitoring system that periodically checks VM status and auto‑starts them if needed
 A clean folder structure suitable for long‑term maintenance and scaling
 ```
@@ -42,6 +46,7 @@ tf-proxmox-infra/
         └── uservms.list
 ```
 **Install Dependencies**
+
 + Terraform
 + jq
 + curl
@@ -137,6 +142,7 @@ DHCP servers → checked every 5 minutes
 NTP servers → checked every 15 minutes
 
 User VMs → checked every hour
+
 
 
 
