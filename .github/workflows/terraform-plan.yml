@@ -1,0 +1,31 @@
+name: Terraform Plan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tf-proxmox-infra
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan
+        env:
+          PM_API_URL: ${{ secrets.PM_API_URL }}
+          PM_API_TOKEN_ID: ${{ secrets.PM_API_TOKEN_ID }}
+          PM_API_TOKEN_SECRET: ${{ secrets.PM_API_TOKEN_SECRET }}
+          PM_TLS_INSECURE: ${{ secrets.PM_TLS_INSECURE }}
+        run: terraform plan -input=false
