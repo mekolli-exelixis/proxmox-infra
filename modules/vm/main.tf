@@ -20,7 +20,7 @@ resource "proxmox_vm_qemu" "vm" {
 
   disk {
     slot    = "ide0"
-    size    = "80M"
+    size    = "8000M"
     type    = "disk"
     storage = "ceph-vm-disks"
   }
