@@ -1,0 +1,39 @@
+name: Terraform User VMs
+
+on:
+  push:
+    paths:
+      - "tf-proxmox-infra/modules/templates/uservm.tf"
+      - "tf-proxmox-infra/**"
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+jobs:
+  uservms:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tf-proxmox-infra
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color -out=tfplan
+
+      - name: Detect Drift
+        id: drift
+        run: |
+          terraform show -json tfplan | jq '.resource_changes | length' > changes.txt
+          echo "count=$(cat changes.txt)" >> $GITHUB_OUTPUT
+
+      - name: Auto Apply
+        if: steps.drift.outputs.count != '0'
+        run: terraform apply -auto-approve tfplan
