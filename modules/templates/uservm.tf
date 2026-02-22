@@ -1,10 +1,10 @@
 module "uservms" {
   source = "../vm"
-  vm_count = 40
-  base_name = "user"
-  start_vmid = 900
-  cpu = 1
-  memory = 512
-  template = "UserVM-Template"
+  vm_count = 8
+  base_name = "user-vm-a:"
+  start_vmid = 500
+  cpu = 2
+  memory = 4096
+  template = "user-vm"
 }
 
