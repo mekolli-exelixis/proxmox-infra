@@ -1,10 +1,10 @@
 module "dhcp" {
   source = "../vm"
   vm_count = 2
-  base_name = "dhcp"
+  base_name = "dhcp-vm-a:"
   start_vmid = 800
-  cpu = 2
-  memory = 2048
-  template = "DHCP-Template"
+  cpu = 4
+  memory = 8096
+  template = "dhcp-vm"
 }
 
