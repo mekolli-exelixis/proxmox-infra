@@ -16,16 +16,18 @@ provider "proxmox" {
 
 module "dhcp" {
   source = "./modules/templates"
-  template_type = "dhcp"
+  template_type = "dhcp-vm"
 }
-
 module "ntp" {
   source = "./modules/templates"
-  template_type = "ntp"
+  template_type = "ntp-vm"
 }
-
-module "uservms" {
+module "nuc" {
   source = "./modules/templates"
-  template_type = "uservm"
+  template_type = "nuc-vm"
+}
+module "uservm" {
+  source = "./modules/templates"
+  template_type = "user-vm"
 }
 
