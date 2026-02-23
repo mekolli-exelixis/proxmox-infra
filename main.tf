@@ -17,17 +17,33 @@ provider "proxmox" {
 module "dhcp" {
   source = "./modules/templates"
   template_type = "dhcp-vm"
+
+  providers = {
+    proxmox = proxmox
+  }
 }
 module "ntp" {
   source = "./modules/templates"
   template_type = "ntp-vm"
+
+  providers = {
+    proxmox = proxmox
+  }
 }
 module "nuc" {
   source = "./modules/templates"
   template_type = "nuc-vm"
+
+  providers = {
+    proxmox = proxmox
+  }
 }
 module "uservm" {
   source = "./modules/templates"
   template_type = "user-vm"
+  
+  providers = {
+    proxmox = proxmox
+  }
 }
 
