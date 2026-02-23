@@ -8,10 +8,6 @@ on:
 jobs:
   drift:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: tf-proxmox-infra
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
