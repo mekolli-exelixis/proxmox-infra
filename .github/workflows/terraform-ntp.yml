@@ -12,10 +12,6 @@ on:
 jobs:
   ntp:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: tf-proxmox-infra
-
     steps:
       - uses: actions/checkout@v4
 
