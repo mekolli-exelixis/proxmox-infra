@@ -23,6 +23,3 @@ jobs:
           PM_API_TOKEN_SECRET: ${{ secrets.PM_API_TOKEN_SECRET }}
           PM_TLS_INSECURE: ${{ secrets.PM_TLS_INSECURE }}
         run: terraform apply -auto-approve -input=false
-
-          PM_TLS_INSECURE: ${{ secrets.PM_TLS_INSECURE }}
-        run: terraform plan -input=false
