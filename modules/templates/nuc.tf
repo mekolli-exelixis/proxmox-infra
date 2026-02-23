@@ -1,4 +1,4 @@
-module "dhcp" {
+module "nuc" {
   source = "../vm"
   vm_count = 4
   base_name = "nuc-vm-a:"
