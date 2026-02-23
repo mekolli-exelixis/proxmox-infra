@@ -4,8 +4,11 @@ on:
   workflow_dispatch:   # manual trigger
 
 jobs:
-  apply:
+  terraform:
     runs-on: ubuntu-latest
+    env:
+      TF_CLI_CONFIG_FILE: ${{ github.workspace }}/terraform.rc
+      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
