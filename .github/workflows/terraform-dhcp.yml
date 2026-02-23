@@ -10,8 +10,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  dhcp:
+  terraform:
     runs-on: ubuntu-latest
+    env:
+      TF_CLI_CONFIG_FILE: ${{ github.workspace }}/terraform.rc
+      
     steps:
       - uses: actions/checkout@v4
 
