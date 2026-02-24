@@ -38,3 +38,11 @@ module "nuc" {
     proxmox = proxmox
   }
 }
+module "uservm" {
+  source = "./modules/templates/uservm"
+  template_type = "user-vm"
+
+  providers = {
+    proxmox = proxmox
+  }
+}
