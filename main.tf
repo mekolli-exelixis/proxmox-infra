@@ -39,7 +39,7 @@ module "nuc" {
   }
 }
 module "uservm" {
-  source = "./modules/templates/user-vm"
+  source = "./modules/templates/uservm"
   template_type = "uservm"
   
   providers = {
