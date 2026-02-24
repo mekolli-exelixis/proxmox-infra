@@ -22,8 +22,6 @@ jobs:
         run: |
           rm -rf .terraform
           rm -f .terraform.lock.hcl
-          rm -rf modules/templates/user-vm || true
-          rm -rf modules/templates/*.tf || true
 
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v3
@@ -45,3 +43,4 @@ jobs:
           PM_API_TOKEN_SECRET: ${{ secrets.PM_API_TOKEN_SECRET }}
           PM_TLS_INSECURE: ${{ secrets.PM_TLS_INSECURE }}
         run: terraform plan -input=false
+
