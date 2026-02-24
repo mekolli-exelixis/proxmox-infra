@@ -1,12 +1,13 @@
-variable "pm_api_url" {
+
+variable "PM_API_URL" {
   type = string
 }
 
-variable "pm_api_token_id" {
+variable "PM_API_TOKEN_ID" {
   type = string
 }
 
-variable "pm_api_token_secret" {
+variable "PM_API_TOKEN_SECRET" {
   type = string
   sensitive = true
 }
