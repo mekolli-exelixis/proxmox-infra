@@ -18,12 +18,6 @@ jobs:
           clean: true
           fetch-depth: 0
 
-      - name: Setup Terraform
-        uses: actions/checkout@v4
-        with:
-          clean: true
-          fetch-depth: 0
-          
       - name: Clean Terraform caches
         run: |
           rm -rf .terraform
@@ -31,6 +25,10 @@ jobs:
           rm -rf modules/templates/user-vm || true
           rm -rf modules/templates/*.tf || true
 
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.6
 
       - name: Terraform Init
         run: terraform init
