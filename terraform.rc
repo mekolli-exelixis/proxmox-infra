@@ -1,8 +1,4 @@
 provider_installation {
-  filesystem_mirror {
-    path    = "providers"
-  }
-
   direct {
     include = ["telmate/proxmox"]
   }
