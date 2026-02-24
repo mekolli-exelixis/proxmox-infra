@@ -38,14 +38,14 @@ jobs:
           find . -maxdepth 4 -type f -print
       # Debug 
       - name: Show terraform.rc
-          run: |
-            echo "=== terraform.rc in workspace ==="
-            cat terraform.rc || echo "No terraform.rc in workspace"
+        run: |
+          echo "=== terraform.rc in workspace ==="
+          cat terraform.rc || echo "No terraform.rc in workspace"
 
-        - name: Show global terraformrc
-          run: |
-            echo "=== ~/.terraformrc ==="
-            cat ~/.terraformrc || echo "No global terraformrc"
+      - name: Show global terraformrc
+        run: |
+          echo "=== ~/.terraformrc ==="
+          cat ~/.terraformrc || echo "No global terraformrc"
 
       # 5. Terraform Init
       - name: Terraform Init
