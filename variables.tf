@@ -11,5 +11,5 @@ variable "PM_API_TOKEN_SECRET" {
 }
 variable "pm_tls_insecure" {
   type    = bool
-  default = false
+  default = true
 }
