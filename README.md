@@ -118,30 +118,18 @@ Each file contains VMIDs to monitor.
 
 **Shared Monitoring Logic**
 
-scripts/check_priority.sh checks VM status via Proxmox API and auto‑starts any VM that is down.
+
 
 **Category Scripts**
 
-+ check_dhcp.sh
-+ check_ntp.sh
-+ check_uservms.sh
 
-Each script calls the shared logic with the appropriate VM list.
 
 **Cron Job Scheduling**
 
-Example cron configuration:
-+ */5  * * * * /path/to/scripts/check_dhcp.sh
-+ */15 * * * * /path/to/scripts/check_ntp.sh
-+ 0    * * * * /path/to/scripts/check_uservms.sh
+
   
-This ensures:
 
-DHCP servers → checked every 5 minutes
 
-NTP servers → checked every 15 minutes
-
-User VMs → checked every hour
 
 
 
