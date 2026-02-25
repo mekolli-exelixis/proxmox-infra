@@ -1,23 +1,38 @@
 name: Terraform Apply
 
 on:
-  workflow_dispatch:   # manual trigger
+  workflow_dispatch:
 
 jobs:
   terraform:
     runs-on: self-hosted
     env:
       TF_CLI_CONFIG_FILE: ${{ github.workspace }}/terraform.rc
-      
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Install unzip + Node.js
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y unzip
+          curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.6
 
       - name: Terraform Init
-        run: terraform init
+        env:
+          TF_VAR_PM_API_URL: ${{ secrets.TF_VAR_PM_API_URL }}
+          TF_VAR_PM_API_TOKEN_ID: ${{ secrets.TF_VAR_PM_API_TOKEN_ID }}
+          TF_VAR_PM_API_TOKEN_SECRET: ${{ secrets.TF_VAR_PM_API_TOKEN_SECRET }}
+          TF_VAR_PM_TLS_INSECURE: ${{ secrets.TF_VAR_PM_TLS_INSECURE }}
+        run: terraform init -input=false
 
       - name: Terraform Apply
         env:
@@ -25,4 +40,5 @@ jobs:
           TF_VAR_PM_API_TOKEN_ID: ${{ secrets.TF_VAR_PM_API_TOKEN_ID }}
           TF_VAR_PM_API_TOKEN_SECRET: ${{ secrets.TF_VAR_PM_API_TOKEN_SECRET }}
           TF_VAR_PM_TLS_INSECURE: ${{ secrets.TF_VAR_PM_TLS_INSECURE }}
-        run: terraform plan -input=false
+        run: terraform apply -auto-approve -input=false
+
