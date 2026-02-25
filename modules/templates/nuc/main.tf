@@ -15,7 +15,7 @@ module "nuc" {
   source      = "../../vm"
   vm_count    = 3
   base_name   = "nuc-vm-a"
-  start_vmid  = 400
+  start_vmid  = 500
   cpu         = 2
   memory      = 4096
   template    = var.template_type

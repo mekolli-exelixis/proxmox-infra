@@ -15,7 +15,7 @@ module "ntp" {
   source      = "../../vm"
   vm_count    = 2
   base_name   = "ntp-vm-a"
-  start_vmid  = 800
+  start_vmid  = 600
   cpu         = 1
   memory      = 2048
   template    = var.template_type
