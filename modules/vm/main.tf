@@ -9,7 +9,7 @@ terraform {
 
 resource "proxmox_vm_qemu" "vm" {
   count = var.vm_count
-  target_node = "pve2"
+  target_node = var.target_node
   name        = "${var.base_name}-${count.index + 1}"
   vmid        = var.start_vmid + count.index
   clone       = var.template
