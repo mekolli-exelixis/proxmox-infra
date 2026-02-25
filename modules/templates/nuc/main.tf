@@ -19,4 +19,5 @@ module "nuc" {
   cpu         = 2
   memory      = 4096
   template    = var.template_type
+  targe_node  = "pve2"
 }

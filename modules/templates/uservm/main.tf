@@ -19,4 +19,5 @@ module "uservm" {
   cpu         = 1
   memory      = 1024
   template    = var.template_type
+  targe_node  = "pve2"
 }
