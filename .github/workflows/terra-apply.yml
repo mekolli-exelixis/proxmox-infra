@@ -21,8 +21,8 @@ jobs:
 
       - name: Terraform Apply
         env:
-          PM_API_URL: ${{ secrets.PM_API_URL }}
-          PM_API_TOKEN_ID: ${{ secrets.PM_API_TOKEN_ID }}
-          PM_API_TOKEN_SECRET: ${{ secrets.PM_API_TOKEN_SECRET }}
-          PM_TLS_INSECURE: ${{ secrets.PM_TLS_INSECURE }}
-        run: terraform apply -auto-approve -input=true 
+          TF_VAR_PM_API_URL: ${{ secrets.TF_VAR_PM_API_URL }}
+          TF_VAR_PM_API_TOKEN_ID: ${{ secrets.TF_VAR_PM_API_TOKEN_ID }}
+          TF_VAR_PM_API_TOKEN_SECRET: ${{ secrets.TF_VAR_PM_API_TOKEN_SECRET }}
+          TF_VAR_PM_TLS_INSECURE: ${{ secrets.TF_VAR_PM_TLS_INSECURE }}
+        run: terraform plan -input=false
