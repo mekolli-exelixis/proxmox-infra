@@ -19,5 +19,5 @@ module "dhcp" {
   cpu         = 4
   memory      = 8096
   template    = var.template_type
-  targe_node  = "pve2"
+  target_node = "pve2"
 }
