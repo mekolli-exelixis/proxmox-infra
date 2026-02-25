@@ -5,6 +5,6 @@ variable "cpu" {}
 variable "memory" {}
 variable "template" {}
 variable "target_node" {
-	type = sring
+	type = string
 }
 
