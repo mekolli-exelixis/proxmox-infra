@@ -7,7 +7,7 @@ on:
 
 jobs:
   terraform:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       TF_CLI_CONFIG_FILE: ${{ github.workspace }}/terraform.rc
 
