@@ -18,14 +18,6 @@ jobs:
           clean: true
           fetch-depth: 0
 
-      # Install unzip + Node.js (required for setup-terraform)
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y unzip
-          curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-          sudo apt-get install -y nodejs
-
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v3
         with:
