@@ -30,11 +30,10 @@ tf-proxmox-infra/
 │   │   ├── main.tf
 │   │   ├── variables.tf
 │   │   └── outputs.tf
-│   └── templates/            # category-specific VM definitions
-│       ├── dhcp.tf
-│       ├── ntp.tf
-│       ├── uservm.tf
-│       └── base_template.tf
+│   ├── dhcp/                 # DHCP VM definitions
+│   ├── ntp/                  # NTP VM definitions
+│   ├── nuc/                  # NUC VM definitions
+│   └── uservm/               # user VM definitions
 └── scripts/
     ├── check_priority.sh     # shared monitoring logic
     ├── check_dhcp.sh
@@ -70,7 +69,7 @@ terraform apply
 
 **VM Templates (DHCP, NTP, User VMs)**
 
-Each VM category is defined in modules/templates/
+Each VM category is defined as a module directly under modules/
 
 **Example: DHCP servers**
 

@@ -15,7 +15,7 @@ provider "proxmox" {
 }
 
 module "dhcp" {
-  source = "./modules/templates/dhcp"
+  source = "./modules/dhcp"
   template_type = "dhcp-vm"
 
   providers = {
@@ -23,7 +23,7 @@ module "dhcp" {
   }
 }
 module "ntp" {
-  source = "./modules/templates/ntp"
+  source = "./modules/ntp"
   template_type = "ntp-vm"
 
   providers = {
@@ -31,7 +31,7 @@ module "ntp" {
   }
 }
 module "nuc" {
-  source = "./modules/templates/nuc"
+  source = "./modules/nuc"
   template_type = "nuc-vm"
 
   providers = {
@@ -39,7 +39,7 @@ module "nuc" {
   }
 }
 module "uservm" {
-  source = "./modules/templates/uservm"
+  source = "./modules/uservm"
   template_type = "user-vm"
 
   providers = {

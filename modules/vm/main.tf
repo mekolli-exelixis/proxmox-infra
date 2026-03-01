@@ -22,16 +22,16 @@ resource "proxmox_vm_qemu" "vm" {
   memory = var.memory
 
   network {
-    id     = 0
-    model  = "virtio"
-    bridge = "vmbr0"
+    id     = var.network_id
+    model  = var.network_model
+    bridge = var.network_bridge
   }
 
   disk {
-    slot    = "ide0"
-    size    = "8000M"
-    type    = "disk"
-    storage = "ceph-vm-disks"
+    slot    = var.disk_slot
+    size    = var.disk_size
+    type    = var.disk_type
+    storage = var.disk_storage
   }
 }
 
